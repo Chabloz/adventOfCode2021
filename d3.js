@@ -5,7 +5,7 @@ function getBinaryCounters(reports) {
   // sum all '1' of each columns
   const counters = new Array(12).fill(0);
   for (const report of reports) {
-    let bits = report.split('');
+    const bits = report.split('');
     for (let i = 0; i < bits.length; i++) {
       if (bits[i]==='1') counters[i]++;
     }
