@@ -7,7 +7,7 @@ function getBinaryCounters(reports) {
   for (const report of reports) {
     const bits = report.split('');
     for (let i = 0; i < bits.length; i++) {
-      if (bits[i]==='1') counters[i]++;
+      if (bits[i] === '1') counters[i]++;
     }
   }
   // transform counters into the two binaries values
@@ -30,7 +30,7 @@ let oxygens = [...reports];
 let steps = 0;
 while (oxygens.length != 1) {
   const {binaryGamma} = getBinaryCounters(oxygens);
-  oxygens = oxygens.filter(o2 => o2[steps] == binaryGamma[steps]);
+  oxygens = oxygens.filter(o2 => o2[steps] === binaryGamma[steps]);
   steps++;
 }
 
@@ -38,7 +38,7 @@ let co2 = [...reports];
 steps = 0;
 while (co2.length != 1) {
   const {binaryEpsilon} = getBinaryCounters(co2);
-  co2 = co2.filter(co2 => co2[steps] == binaryEpsilon[steps]);
+  co2 = co2.filter(co2 => co2[steps] === binaryEpsilon[steps]);
   steps++;
 }
 
