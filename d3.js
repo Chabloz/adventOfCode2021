@@ -38,7 +38,7 @@ let co2 = [...reports];
 steps = 0;
 while (co2.length != 1) {
   const {binaryEpsilon} = getBinaryCounters(co2);
-  co2 = co2.filter(o2 => o2[steps] == binaryEpsilon[steps]);
+  co2 = co2.filter(co2 => co2[steps] == binaryEpsilon[steps]);
   steps++;
 }
 
