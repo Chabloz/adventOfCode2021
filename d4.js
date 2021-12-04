@@ -82,16 +82,16 @@ console.log(getSumNotChecked(grid) * number);
 function getNumberAndLastWinningGrid(numbers, grids) {
   const winningGrids = [];
   for (const number of numbers) {
-    const noWinningGrid = [];
+    const noWinningGrids = [];
     for (const grid of grids) {
       checkNumberInGrid(number, grid);
       if (hasGridSolution(grid)) {
         winningGrids.push([grid, number]);
       } else {
-        noWinningGrid.push(grid);
+        noWinningGrids.push(grid);
       }
     }
-    grids = noWinningGrid;
+    grids = noWinningGrids;
   }
   return winningGrids.pop();
 }
