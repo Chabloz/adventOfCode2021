@@ -20,7 +20,6 @@ function getBinaryCounters(reports) {
   return {binaryGamma, binaryEpsilon};
 }
 
-// convert counters to binary
 const {binaryGamma, binaryEpsilon} = getBinaryCounters(reports);
 console.log(parseInt(binaryGamma, 2) * parseInt(binaryEpsilon, 2));
 
