@@ -13,10 +13,6 @@ function generateGrid() {
   return grid;
 }
 
-function getMinMax(a, b) {
-  return a < b ? [a, b] : [b, a];
-}
-
 function entriesToGrids(entries, withDiag) {
   entries = entries.replace(/ -> /g, ',').replace(/\s+/g, ',').split(',');
   const nbEntries = entries.length / 4; // 4 numbers per input: x1, y1, x2, y2
