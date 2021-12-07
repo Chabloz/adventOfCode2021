@@ -2,7 +2,7 @@ const crabs = [1101, 1, 29, 67, 1102, 0, 1, 65, 1008, 65, 35, 66, 1005, 66, 28, 
 const maxPos = Math.max(...crabs);
 
 // day7 part 1
-function fuelNeededForPosisionPart1(pos, crabs) {
+function fuelNeededForPositionPart1(pos, crabs) {
   let fuel = 0;
   for (const crab of crabs) {
     fuel += Math.abs(crab - pos);
@@ -10,15 +10,15 @@ function fuelNeededForPosisionPart1(pos, crabs) {
   return fuel;
 }
 
-let fuelNeededForPosisions = [];
+let fuelNeededForPositions = [];
 for (let pos = 0; pos <= maxPos; pos++) {
-  fuelNeededForPosisions.push(fuelNeededForPosisionPart1(pos, crabs));
+  fuelNeededForPositions.push(fuelNeededForPositionPart1(pos, crabs));
 }
-console.log(Math.min(...fuelNeededForPosisions));
+console.log(Math.min(...fuelNeededForPositions));
 
 
 // day7 part 2
-function fuelNeededForPosisionPart2(pos, crabs) {
+function fuelNeededForPositionPart2(pos, crabs) {
   let fuel = 0;
   for (const crab of crabs) {
     let dist = Math.abs(crab - pos);
@@ -27,8 +27,8 @@ function fuelNeededForPosisionPart2(pos, crabs) {
   return fuel;
 }
 
-fuelNeededForPosisions = [];
+fuelNeededForPositions = [];
 for (let pos = 0; pos <= maxPos; pos++) {
-  fuelNeededForPosisions.push(fuelNeededForPosisionPart2(pos, crabs));
+  fuelNeededForPositions.push(fuelNeededForPositionPart2(pos, crabs));
 }
-console.log(Math.min(...fuelNeededForPosisions));
+console.log(Math.min(...fuelNeededForPositions));
