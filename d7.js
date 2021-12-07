@@ -22,8 +22,7 @@ function fuelNeededForPosisionPart2(pos, crabs) {
   let fuel = 0;
   for (const crab of crabs) {
     let dist = Math.abs(crab - pos);
-    fuel += dist * (dist +1) / 2;
-
+    fuel += dist * (dist + 1) / 2;
   }
   return fuel;
 }
