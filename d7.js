@@ -11,6 +11,7 @@ function fuelNeededForPositionPart1(pos, crabs) {
   return fuel;
 }
 
+// stupid brute force ( no median calculation |o/ )
 let minFuel = Infinity;
 for (let pos = 0; pos <= maxPos; pos++) {
   let fuel = fuelNeededForPositionPart1(pos, crabs)
@@ -28,7 +29,7 @@ function fuelNeededForPositionPart2(pos, crabs) {
   }
   return fuel;
 }
-
+// stupid brute force ( no mean calculation |o/ )
 minFuel = Infinity;
 for (let pos = 0; pos <= maxPos; pos++) {
   let fuel = fuelNeededForPositionPart2(pos, crabs)
