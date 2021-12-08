@@ -130,9 +130,7 @@ for (const entrie of entries) {
   // We can finnaly calculate the output !
   let solution = '';
   for (const digit of outputs) {
-    for (let d = 0; d <= 9; d++) {
-      if (digit == digitsSolution[d]) solution += d;
-    }
+    solution += digitsSolution.indexOf(digit);
   }
 
   sum += parseInt(solution);
