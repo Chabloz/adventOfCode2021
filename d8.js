@@ -119,7 +119,7 @@ for (const entrie of entries) {
     }
   }
 
-  // sort solution and digits with same orders
+  // sort solutions and outputs digits with same orders
   for (let i = 0; i < 10; i++) {
     digitsSolution[i] = digitsSolution[i].split('').sort().join('');
   }
