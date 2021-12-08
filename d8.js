@@ -1,6 +1,6 @@
 // 4 digit output value
 const NB_OUTPUT_DIGITS = 4;
-// Each of the ten digit segments
+// Each of the ten digit segments "size"
 const DIGIT_SIZE = [
   6, // 0 has 6 segments
   2, // 1 has 2 segments
