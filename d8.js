@@ -121,7 +121,6 @@ for (const entrie of entries) {
     }
   }
 
-
   // sort solution and digits with same orders
   for (let i = 0; i < NB_SIGNALS; i++) {
     digitsSolution[i] = digitsSolution[i].split('').sort().join('');
