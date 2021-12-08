@@ -1,8 +1,6 @@
-// 10 unique signal patterns
-const NB_SIGNALS = 10;
 // 4 digit output value
-const NB_DIGITS = 4;
-// Each of the ten digit segments "size"
+const NB_OUTPUT_DIGITS = 4;
+// Each of the ten digit segments
 const DIGIT_SIZE = [
   6, // 0 has 6 segments
   2, // 1 has 2 segments
@@ -20,16 +18,16 @@ const input = "beacf afbd bcead cgefa ecdbga efb gbfdeac ecgfbd acbdfe fb | bf e
 
 function parseInput(input) {
   input = input.replace(/ \| /g, ' ').split(' ');
-  const nbInputs = input.length / (NB_SIGNALS + NB_DIGITS);
+  const nbInputs = input.length / (10 + NB_OUTPUT_DIGITS);
   let i = 0;
   const entries = [];
   for (let inputNum = 0; inputNum < nbInputs; inputNum++) {
-    const curentInput = {signals: [], digits: []};
-    for (let signal = 0; signal< NB_SIGNALS; signal++) {
+    const curentInput = {signals: [], ouputs: []};
+    for (let signal = 0; signal< 10; signal++) {
       curentInput.signals.push(input[i++]);
     }
-    for (let digit = 0; digit< NB_DIGITS; digit++) {
-      curentInput.digits.push(input[i++]);
+    for (let digit = 0; digit< NB_OUTPUT_DIGITS; digit++) {
+      curentInput.ouputs.push(input[i++]);
     }
     entries.push(curentInput);
   }
@@ -43,8 +41,8 @@ const digitsSize = [1, 4, 7, 8].map(d => DIGIT_SIZE[d]);
 
 let count = 0;
 for (const entrie of entries) {
-  const {digits} = entrie;
-  for (const digit of digits) {
+  const {ouputs} = entrie;
+  for (const digit of ouputs) {
     if (digitsSize.includes(digit.length)) count++;
   }
 }
@@ -61,7 +59,7 @@ function countSimilarSeg(digitA, digitB) {
 
 let sum = 0;
 for (const entrie of entries) {
-  const {signals, digits} = entrie;
+  const {signals, ouputs} = entrie;
   const digitsSolution = new Array(10).fill('');
 
   // solve 1 4 7 8: the easy part !
@@ -122,16 +120,16 @@ for (const entrie of entries) {
   }
 
   // sort solution and digits with same orders
-  for (let i = 0; i < NB_SIGNALS; i++) {
+  for (let i = 0; i < 10; i++) {
     digitsSolution[i] = digitsSolution[i].split('').sort().join('');
   }
-  for (let i = 0; i < NB_DIGITS; i++) {
-    digits[i] = digits[i].split('').sort().join('');
+  for (let i = 0; i < NB_OUTPUT_DIGITS; i++) {
+    ouputs[i] = ouputs[i].split('').sort().join('');
   }
 
   // We can finnaly calculate the output !
   let solution = '';
-  for (const digit of digits) {
+  for (const digit of ouputs) {
     for (let d = 0; d <= 9; d++) {
       if (digit == digitsSolution[d]) solution += d;
     }
