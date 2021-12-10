@@ -21,7 +21,7 @@ const SCORE_PART2 = new Map([
   ['>', 4]
 ]);
 
-let chunks = inputs.replace(/\s+/g, ' ').split(' ');
+let chunks = inputs.split(' ');
 
 // day 10 part 1
 function getFirstCorruptedChar(chunk) {
