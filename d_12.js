@@ -15,7 +15,7 @@ function inputToPaths(input) {
 
   for (const path of paths) {
     const [node1, node2] = path.split('-');
-    // no path form end or to start (because end and start are small caves and can be visited only once)
+    // no path from end or to start (because end and start are small caves and can be visited only once)
     if (node1 != 'end' && node2 != 'start') makePathFromTo(node1, node2);
     if (node2 != 'end' && node1 != 'start') makePathFromTo(node2, node1);
   }
