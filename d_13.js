@@ -43,8 +43,8 @@ console.log(makeAFold(folds[0], dots).size);
 
 // day 13 part 2
 function dotsToAscii(dots) {
-  const maxX = Math.max(...[...dots].map(d => d.split(',')[0]));
-  const maxY = Math.max(...[...dots].map(d => d.split(',')[1]));
+  const maxX = Math.max(...[...dots].map(d => d.split(',')[0])); // sry for that line !
+  const maxY = Math.max(...[...dots].map(d => d.split(',')[1])); // and this one ¯\_(ツ)_/¯
   let buffer = '';
   for (let y = 0; y <= maxY; y++) {
     for (let x = 0; x <= maxX; x++) {
