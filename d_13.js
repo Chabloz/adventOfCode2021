@@ -4,7 +4,7 @@ function inputToDotsAndFolds(input) {
   input = input.split('fold along');
   const [numbersInput, ...foldsInput] = input;
   const numbers =  numbersInput.trim().split(' ');
-  const dots = new Set(numbers);
+  const dots = new Set(numbers); // this is a soooo lazy way to hash !
   const folds = foldsInput.map(fold => fold.trim())
   return {dots, folds};
 }
