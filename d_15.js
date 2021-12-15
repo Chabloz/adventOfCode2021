@@ -17,7 +17,7 @@ function inputToMatrix(input) {
 
 // day 15 part 1
 
-// Great Dijkstra’s Algorithm ( Uniform Cost Search ) pseudo code example here: https://www.redblobgames.com/pathfinding/a-star/introduction.html
+// Great Dijkstra’s Algorithm ( Uniform Cost Search ) example here: https://www.redblobgames.com/pathfinding/a-star/introduction.html
 function uniformCostSearch(matrix, start, goal) {
   const frontier = new Map();
   frontier.set(start, 0);
@@ -38,7 +38,7 @@ function uniformCostSearch(matrix, start, goal) {
       }
     }
   }
-  return cameFrom;
+  return costSoFar;
 }
 
 function getNeighbors(coord) {
@@ -72,15 +72,8 @@ function getCost(matrix, coord) {
 const matrix = inputToMatrix(input);
 let start = '0,0';
 let goal = `${matEdge-1},${matEdge-1}`;
-let cameFrom = uniformCostSearch(matrix, start, goal);
-// calculate path total cost
-let current = goal;
-let totalCost = 0;
-while (current != start) {
-  totalCost += getCost(matrix, current);
-  current = cameFrom.get(current);
-}
-console.log(totalCost);
+let costSoFar = uniformCostSearch(matrix, start, goal);
+console.log(costSoFar.get(goal));
 
 // day 15 part 2
 
@@ -112,12 +105,5 @@ matEdge = matEdge * amount;
 
 start = '0,0';
 goal = `${matEdge-1},${matEdge-1}`;
-cameFrom = uniformCostSearch(matrixExpanded, start, goal);
-// calculate path total cost
-current = goal;
-totalCost = 0;
-while (current != start) {
-  totalCost += getCost(matrixExpanded, current);
-  current = cameFrom.get(current);
-}
-console.log(totalCost);
+costSoFar = uniformCostSearch(matrixExpanded, start, goal);
+console.log(costSoFar.get(goal));
