@@ -2,7 +2,6 @@ const input = '74679231611998539751638789649558158819916426769389124514479197926
 
 let matEdge = 100; // the Matrix have 100 rows and 100 cols
 
-
 function inputToMatrix(input) {
   input = input.replace(/\s+/g, '');
   const matrix = [];
