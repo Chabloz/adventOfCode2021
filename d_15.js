@@ -30,7 +30,7 @@ function uniformCostSearch(matrix, start, goal) {
     if (current == goal) break;
     for (const neighbor of getNeighbors(current)) {
       let [x,y] = neighbor.split(',');
-      const newCost = costSoFar.get(current) + matrix[x][y];
+      const newCost = costSoFar.get(current) + getCost(matrix, neighbor);
       if (!costSoFar.has(neighbor) || newCost < costSoFar.get(neighbor)) {
         costSoFar.set(neighbor, newCost);
         frontier.set(neighbor, newCost);
