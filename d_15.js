@@ -17,7 +17,7 @@ function inputToMatrix(input) {
 
 // day 15 part 1
 
-// Great Dijkstra’s Algorithm ( Uniform Cost Search ) example here: https://www.redblobgames.com/pathfinding/a-star/introduction.html
+// Great Dijkstra’s Algorithm ( Uniform Cost Search ) pseudo code example here: https://www.redblobgames.com/pathfinding/a-star/introduction.html
 function uniformCostSearch(matrix, start, goal) {
   const frontier = new Map();
   frontier.set(start, 0);
