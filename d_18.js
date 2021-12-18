@@ -132,9 +132,7 @@ function calculateMagnitude(snailfishNumberStr) {
 }
 
 function getMagnitude(array, mulBy) {
-  if (!Array.isArray(array)) {
-    return mulBy * array;
-  }
+  if (!Array.isArray(array)) return mulBy * array;  
   return mulBy * (getMagnitude(array[0], 3) + getMagnitude(array.pop(), 2));
 }
 
