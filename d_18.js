@@ -48,8 +48,7 @@ function getValBeforeIndex(strNb, index) {
   return [buffer, lastI];
 }
 
-function splitIntoPair(strNb, index, val) {
-  // console.log('we split' , val, ' here: ', index);
+function splitIntoPair(strNb, index, val) {  
   const val1 = Math.floor(parseInt(val) / 2);
   const val2 = Math.ceil(parseInt(val) / 2);
   return replaceAfterIndex(strNb, val, `[${val1},${val2}]`, index);
