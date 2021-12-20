@@ -17,9 +17,7 @@ function parseInput(input) {
   return {enhancement, inputImg, startingRow: 0, endingRow: row-1, startingCol: 0, endingCol: col - 1};
 }
 
-// day 20 part 1
 function enhanceInputImg({enhancement, inputImg, startingRow, endingRow, startingCol, endingCol, periphery}) {
-
   const outputImg = new Set();
   for (let row = startingRow - 1; row <= endingRow + 1; row++) {
     for (let col = startingCol - 1; col <= endingCol + 1; col++) {
