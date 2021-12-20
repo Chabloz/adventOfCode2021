@@ -42,10 +42,10 @@ function getOutputImgAfterNbIter(data, nbIter) {
     const outputImg = enhanceInputImg({...data, periphery});
     // update inputImg and pheriphery values
     data.inputImg = outputImg;
-    data.startingRow = data.startingRow - 1;
-    data.endingRow = data.endingRow + 1;
-    data.startingCol = data.startingCol - 1;
-    data.endingCol = data.endingCol + 1;
+    data.startingRow -= 1;
+    data.endingRow += 1;
+    data.startingCol -= 1;
+    data.endingCol += 1;
     periphery = new Set();
     // The pheriphery is not empty only on pair iteration
     if (i%2==0) {
