@@ -47,7 +47,7 @@ function getOutputImgAfterNbIter(data, nbIter) {
     data.startingCol -= 1;
     data.endingCol += 1;
     periphery = new Set();
-    // The pheriphery is not empty only on pair iteration
+    // The pheriphery is not empty only on even iteration
     if (i%2==0) {
       for (let row = data.startingRow - 1; row <= data.endingRow + 1; row++){
         periphery.add(`${row},${data.startingCol - 1}`);
