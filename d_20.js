@@ -50,20 +50,20 @@ function getOutputImgAfterNbIter(data, nbIter) {
     // The pheriphery is not empty only on pair iteration
     if (i%2==0) {
       for (let row = data.startingRow - 1; row <= data.endingRow + 1; row++){
-        periphery.add(`${row},${data.startingCol-1}`);
-        periphery.add(`${row},${data.endingCol+1}`);
+        periphery.add(`${row},${data.startingCol - 1}`);
+        periphery.add(`${row},${data.endingCol + 1}`);
       }
       for (let row = data.startingRow - 2; row <= data.endingRow + 2; row++){
-        periphery.add(`${row},${data.startingCol-2}`);
-        periphery.add(`${row},${data.endingCol+2}`);
+        periphery.add(`${row},${data.startingCol - 2}`);
+        periphery.add(`${row},${data.endingCol + 2}`);
       }
       for (let col = data.startingCol - 1; col <= data.endingCol + 1; col++){
-        periphery.add(`${data.startingRow-1},${col}`);
-        periphery.add(`${data.endingRow+1},${col}`);
+        periphery.add(`${data.startingRow - 1},${col}`);
+        periphery.add(`${data.endingRow + 1},${col}`);
       }
       for (let col = data.startingCol - 2; col <= data.endingCol + 2; col++){
-        periphery.add(`${data.startingRow-2},${col}`);
-        periphery.add(`${data.endingRow+2},${col}`);
+        periphery.add(`${data.startingRow - 2},${col}`);
+        periphery.add(`${data.endingRow + 2},${col}`);
       }
     }
   }
