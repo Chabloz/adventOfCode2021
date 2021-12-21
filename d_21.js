@@ -8,10 +8,8 @@ function inputToPlayers(input) {
   ]
 }
 
-
-let players = inputToPlayers(intput);
-
 // day 21 part 1
+let players = inputToPlayers(intput);
 
 let dieResult = 0;
 let nbRolls = 0;
@@ -49,7 +47,6 @@ const possibleDiracDieTotal = new Map([
   [8, 3], // 332 323 233
   [9, 1], // 333
 ]);
-
 
 function gameTurn(playersData, playerInd) {
   let nbWins = 0;
