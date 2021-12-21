@@ -11,19 +11,19 @@ function inputToPlayers(input) {
 // day 21 part 1
 let players = inputToPlayers(intput);
 
-let dieResult = 0;
-let nbRolls = 0;
-function roll() {
-  const res =  dieResult + 1;
-  dieResult = (dieResult + 1) % 100;
-  nbRolls++;
-  return res;
-}
+const d = {
+  nbRolls: 0,
+  dieResult: 0,
+  roll() {
+    this.nbRolls++;
+    return (this.dieResult++ + 1) % 100;
+  }
+};
 
 let winner = 0;
 while (!winner) {
   for (const player of players) {
-    const result = roll() + roll() + roll();
+    const result = d.roll() + d.roll() + d.roll();
     player.position = (player.position - 1 + result) % 10 + 1;
     player.score += player.position;
     if (player.score >= 1000) {
@@ -33,7 +33,7 @@ while (!winner) {
   }
 }
 
-console.log(players[winner%2].score * nbRolls);
+console.log(players[winner%2].score * d.nbRolls);
 
 // day 21 part 2
 players = inputToPlayers(intput);
@@ -48,20 +48,31 @@ const possibleDiracDieTotal = new Map([
   [9, 1], // 333
 ]);
 
-function gameTurn(playersData, playerInd) {
-  let nbWins = 0;
-  for (const [result, nbUnivers]  of possibleDiracDieTotal.entries()) {
-    const players = [{...playersData[0]}, {...playersData[1]}];
-    players[playerInd].position = (players[playerInd].position - 1 + result) % 10 + 1;
-    players[playerInd].score += players[playerInd].position;
-    if (players[playerInd].score >= 21) {
-      if (playerInd == 1) continue; //the player 2 is not winning (we can estimate it the from starting pos)
-      nbWins += nbUnivers;
-    } else {
-      nbWins += nbUnivers * gameTurn(players, (playerInd + 1) % 2);
-    }
-  }
-  return nbWins;
+
+const memoize = (fn, cache = new Map()) => (...args) => {
+  const key = JSON.stringify(args);
+  if (cache.has(key)) return cache.get(key);
+  const result = fn(...args);
+  cache.set(key, result);
+  return result;
 }
+
+const gameTurn = memoize(
+  (playersData, playerInd) => {
+    let nbWins = 0;
+    for (const [result, nbUnivers]  of possibleDiracDieTotal.entries()) {
+      const players = [{...playersData[0]}, {...playersData[1]}];
+      players[playerInd].position = (players[playerInd].position - 1 + result) % 10 + 1;
+      players[playerInd].score += players[playerInd].position;
+      if (players[playerInd].score >= 21) {
+        if (playerInd == 1) continue; //the player 2 is not winning (we can estimate it the from starting pos)
+        nbWins += nbUnivers;
+      } else {
+        nbWins += nbUnivers * gameTurn(players, (playerInd + 1) % 2);
+      }
+    }
+    return nbWins;
+  }
+)
 
 console.log(gameTurn(players, 0));
