@@ -45,12 +45,12 @@ function getCuboidInColissionBetween(key1, key2) {
 }
 
 function sumOfCuboids(cuboids) {
-  let sumOfCuboid = 0
+  let sumOfCuboids = 0
   for (const [key, value] of cuboids.entries()) {
     const [startX, endX, startY, endY, startZ, endZ] = key.split(',').map(v => +v);
-    sumOfCuboid += (endX - startX + 1) * (endY - startY + 1) * (endZ - startZ + 1) * value;
+    sumOfCuboids += (endX - startX + 1) * (endY - startY + 1) * (endZ - startZ + 1) * value;
   }
-  return sumOfCuboid;
+  return sumOfCuboids;
 }
 
 // day 21 part 1
