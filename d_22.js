@@ -8,7 +8,7 @@ function inputToCuboids(input, part1 = true) {
   let i = 0;
 
   for (const state of states) {
-    let key = `${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]}`;
+    const key = `${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]},${numbers[i++]}`;
 
     if (part1) {
       const [startX, endX, startY, endY, startZ, endZ] = key.split(',').map(v => +v);
